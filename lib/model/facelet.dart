@@ -20,4 +20,7 @@ class Facelet {
       );
 
   String get name => face.name.substring(0, 1) + index.toString();
+
+  @override
+  String toString() => name;
 }

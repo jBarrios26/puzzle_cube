@@ -15,7 +15,7 @@ void main() {
         centers: Centers(centers: {}),
         corners: Corners(
           corners: {
-            Cube3By3CornerCoord.urf: Corner(
+            CubeCornerPosition.urf: Corner(
               cornerFacelets: {
                 0: Facelet(
                   face: Face.up,
@@ -34,7 +34,7 @@ void main() {
                 ),
               },
             ),
-            Cube3By3CornerCoord.dfr: Corner(
+            CubeCornerPosition.dfr: Corner(
               cornerFacelets: {
                 0: Facelet(
                   face: Face.down,
@@ -53,7 +53,7 @@ void main() {
                 ),
               },
             ),
-            Cube3By3CornerCoord.dlf: Corner(
+            CubeCornerPosition.dlf: Corner(
               cornerFacelets: {
                 0: Facelet(
                   face: Face.down,
@@ -72,7 +72,7 @@ void main() {
                 ),
               },
             ),
-            Cube3By3CornerCoord.ufl: Corner(
+            CubeCornerPosition.ufl: Corner(
               cornerFacelets: {
                 0: Facelet(
                   face: Face.up,
