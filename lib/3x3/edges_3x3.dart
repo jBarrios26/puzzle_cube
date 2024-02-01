@@ -1,0 +1,110 @@
+import 'package:puzzle_cube/3x3/constant.dart';
+import 'package:puzzle_cube/puzzle_cube.dart';
+
+class Edges3x3 extends Edges {
+  Edges3x3({required super.edges});
+
+  @override
+  void b() {
+    // TODO: implement b
+  }
+
+  @override
+  void b2() {
+    // TODO: implement b2
+  }
+
+  @override
+  void bAntiClockwise() {
+    // TODO: implement bAntiClockwise
+  }
+
+  @override
+  void d() {
+    // TODO: implement d
+  }
+
+  @override
+  void d2() {
+    // TODO: implement d2
+  }
+
+  @override
+  void dAntiClockwise() {
+    // TODO: implement dAntiClockwise
+  }
+
+  @override
+  void f() {
+    final buffer = edges[(EdgePosition.uf, edgeFirstLevel)];
+    edges[(EdgePosition.uf, edgeFirstLevel)] =
+        edges[(EdgePosition.fl, edgeFirstLevel)]!;
+    edges[(EdgePosition.uf, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.fl, edgeFirstLevel)] =
+        edges[(EdgePosition.df, edgeFirstLevel)]!;
+    edges[(EdgePosition.fl, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.df, edgeFirstLevel)] =
+        edges[(EdgePosition.fr, edgeFirstLevel)]!;
+    edges[(EdgePosition.df, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.fr, edgeFirstLevel)] = buffer!;
+    edges[(EdgePosition.fr, edgeFirstLevel)]!.rotateClockwise();
+  }
+
+  @override
+  void f2() {
+    // TODO: implement f2
+  }
+
+  @override
+  void fAntiClockwise() {
+    // TODO: implement fAntiClockwise
+  }
+
+  @override
+  void l() {
+    // TODO: implement l
+  }
+
+  @override
+  void l2() {
+    // TODO: implement l2
+  }
+
+  @override
+  void lAntiClockwise() {
+    // TODO: implement lAntiClockwise
+  }
+
+  @override
+  void r() {
+    // TODO: implement r
+  }
+
+  @override
+  void r2() {
+    // TODO: implement r2
+  }
+
+  @override
+  void rAntiClockwise() {
+    // TODO: implement rAntiClockwise
+  }
+
+  @override
+  void u() {
+    // TODO: implement u
+  }
+
+  @override
+  void u2() {
+    // TODO: implement u2
+  }
+
+  @override
+  void uAntiClockwise() {
+    // TODO: implement uAntiClockwise
+  }
+}
