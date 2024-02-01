@@ -1,14 +1,5 @@
-import 'package:puzzle_cube/model/cube_color.dart';
-import 'package:puzzle_cube/model/face.dart';
-import 'package:puzzle_cube/model/facelet.dart';
-import 'package:puzzle_cube/model/moves/move.dart';
+import 'package:puzzle_cube/model/face/facelet.dart';
 import 'package:puzzle_cube/model/moves/rotation.dart';
-
-class Centers {
-  final Map<Face, List<Center>> centers;
-
-  Centers({required this.centers});
-}
 
 class Center implements Rotation {
   final Facelet facelet;

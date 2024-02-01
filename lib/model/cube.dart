@@ -1,10 +1,9 @@
-import 'package:puzzle_cube/model/center.dart';
-import 'package:puzzle_cube/model/corner.dart';
-import 'package:puzzle_cube/model/edge.dart';
-import 'package:puzzle_cube/model/face.dart';
-import 'package:puzzle_cube/model/facelet.dart';
+import 'package:puzzle_cube/model/center/centers.dart';
+import 'package:puzzle_cube/model/corner/corners.dart';
+import 'package:puzzle_cube/model/edge/edges.dart';
+import 'package:puzzle_cube/model/moves/move.dart';
 
-class Cube {
+abstract class Cube implements MoveList {
   final Centers centers;
   final Corners corners;
   final Edges edge;
@@ -17,11 +16,8 @@ class Cube {
 
   @override
   String toString() {
-    final urfUpFacelet =
-        corners.corners[CubeCornerPosition.urf]!.getColorBasedOnPosition(
-      CubeCornerPosition.urf,
-      Face.up,
-    );
-    return urfUpFacelet.toString();
+    return corners.corners.toString() +
+        edge.edges.toString() +
+        centers.centers.toString();
   }
 }

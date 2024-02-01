@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:puzzle_cube/model/cube_color.dart';
-import 'package:puzzle_cube/model/face.dart';
+import 'package:puzzle_cube/model/color/cube_color.dart';
+import 'package:puzzle_cube/model/face/face.dart';
 
 class Facelet {
   final Face face;

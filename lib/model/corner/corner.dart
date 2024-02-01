@@ -1,80 +1,8 @@
-import 'package:puzzle_cube/model/corner_position.dart';
-import 'package:puzzle_cube/model/face.dart';
-import 'package:puzzle_cube/model/facelet.dart';
-import 'package:puzzle_cube/model/moves/moves.dart';
-
-class InvalidFaceException implements Exception {
-  final String message;
-
-  InvalidFaceException(this.message);
-}
-
-class CubeCornerPosition {
-  static const CornerPosition urf = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.right,
-    thirdFace: Face.front,
-  );
-
-  static const CornerPosition ufl = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.front,
-    thirdFace: Face.left,
-  );
-  static const CornerPosition ulb = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.left,
-    thirdFace: Face.back,
-  );
-
-  static const CornerPosition ubr = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.back,
-    thirdFace: Face.right,
-  );
-
-  static const CornerPosition dfr = CornerPosition(
-    firstFace: Face.down,
-    secondFace: Face.front,
-    thirdFace: Face.right,
-  );
-  static const CornerPosition dlf = CornerPosition(
-    firstFace: Face.down,
-    secondFace: Face.left,
-    thirdFace: Face.front,
-  );
-
-  static const CornerPosition drb = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.right,
-    thirdFace: Face.back,
-  );
-
-  static const CornerPosition dbl = CornerPosition(
-    firstFace: Face.up,
-    secondFace: Face.back,
-    thirdFace: Face.left,
-  );
-
-  static const List<CornerPosition> cornerPositionList = [
-    urf,
-    ulb,
-    ufl,
-    ubr,
-    dbl,
-    drb,
-    dfr,
-    dlf
-  ];
-}
-
-class Corners {
-  final Map<CornerPosition, Corner> corners;
-
-  Corners({
-    required this.corners,
-  });
-}
+import 'package:puzzle_cube/exception/invalid_face_exception.dart';
+import 'package:puzzle_cube/model/corner/corner_position.dart';
+import 'package:puzzle_cube/model/face/face.dart';
+import 'package:puzzle_cube/model/face/facelet.dart';
+import 'package:puzzle_cube/model/moves/rotation.dart';
 
 class Corner implements Rotation {
   int orientation;
@@ -101,7 +29,7 @@ class Corner implements Rotation {
 
   Facelet getColorBasedOnPosition(CornerPosition position, Face face) {
     switch (position) {
-      case CubeCornerPosition.urf:
+      case CornerPosition.urf:
         switch (face) {
           case Face.up:
             return getFacelet(orientation + 0);
@@ -113,7 +41,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.ufl:
+      case CornerPosition.ufl:
         switch (face) {
           case Face.up:
             return getFacelet(orientation + 0);
@@ -125,7 +53,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.ulb:
+      case CornerPosition.ulb:
         switch (face) {
           case Face.up:
             return getFacelet(orientation + 0);
@@ -137,7 +65,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.ubr:
+      case CornerPosition.ubr:
         switch (face) {
           case Face.up:
             return getFacelet(orientation + 0);
@@ -149,7 +77,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.dfr:
+      case CornerPosition.dfr:
         switch (face) {
           case Face.down:
             return getFacelet(orientation + 0);
@@ -161,7 +89,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.dlf:
+      case CornerPosition.dlf:
         switch (face) {
           case Face.down:
             return getFacelet(orientation + 0);
@@ -173,7 +101,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.drb:
+      case CornerPosition.drb:
         switch (face) {
           case Face.down:
             return getFacelet(orientation + 0);
@@ -185,7 +113,7 @@ class Corner implements Rotation {
             throw InvalidFaceException(
                 '$face is not a valid cube face for this position');
         }
-      case CubeCornerPosition.dbl:
+      case CornerPosition.dbl:
         switch (face) {
           case Face.down:
             return getFacelet(orientation + 0);
