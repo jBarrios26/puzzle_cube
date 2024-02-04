@@ -55,12 +55,28 @@ class Edges3x3 extends Edges {
 
   @override
   void f2() {
-    // TODO: implement f2
+    f();
+    f();
   }
 
   @override
   void fAntiClockwise() {
-    // TODO: implement fAntiClockwise
+    final buffer = edges[(EdgePosition.uf, edgeFirstLevel)];
+
+    edges[(EdgePosition.uf, edgeFirstLevel)] =
+        edges[(EdgePosition.fr, edgeFirstLevel)]!;
+    edges[(EdgePosition.uf, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.fr, edgeFirstLevel)] =
+        edges[(EdgePosition.df, edgeFirstLevel)]!;
+    edges[(EdgePosition.fr, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.df, edgeFirstLevel)] =
+        edges[(EdgePosition.fl, edgeFirstLevel)]!;
+    edges[(EdgePosition.df, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.fl, edgeFirstLevel)] = buffer!;
+    edges[(EdgePosition.fl, edgeFirstLevel)]!.rotateClockwise();
   }
 
   @override
