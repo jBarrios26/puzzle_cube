@@ -65,24 +65,47 @@ class Edges3x3 extends Edges {
 
   @override
   void l() {
-    // TODO: implement l
+    final buffer = edges[(EdgePosition.ul, edgeFirstLevel)];
+
+    edges[(EdgePosition.ul, edgeFirstLevel)] =
+        edges[(EdgePosition.bl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.bl, edgeFirstLevel)] =
+        edges[(EdgePosition.dl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dl, edgeFirstLevel)] =
+        edges[(EdgePosition.fl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.fl, edgeFirstLevel)] = buffer!;
   }
 
   @override
   void l2() {
-    // TODO: implement l2
+    l();
+    l();
   }
 
   @override
   void lAntiClockwise() {
-    // TODO: implement lAntiClockwise
+    final buffer = edges[(EdgePosition.ul, edgeFirstLevel)];
+
+    edges[(EdgePosition.ul, edgeFirstLevel)] =
+        edges[(EdgePosition.fl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.fl, edgeFirstLevel)] =
+        edges[(EdgePosition.dl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dl, edgeFirstLevel)] =
+        edges[(EdgePosition.bl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.bl, edgeFirstLevel)] = buffer!;
   }
 
   @override
   void r() {
     final buffer = edges[(EdgePosition.ur, edgeFirstLevel)];
 
-    edges[(EdgePosition.uf, edgeFirstLevel)] =
+    edges[(EdgePosition.ur, edgeFirstLevel)] =
         edges[(EdgePosition.fr, edgeFirstLevel)]!;
 
     edges[(EdgePosition.fr, edgeFirstLevel)] =
