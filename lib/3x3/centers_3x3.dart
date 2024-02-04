@@ -5,32 +5,38 @@ class Centers3x3 extends Centers {
 
   @override
   void b() {
-    // TODO: implement b
+    for (var element in centers[Face.back]!) {
+      element.rotateClockwise();
+    }
   }
 
   @override
   void b2() {
-    // TODO: implement b2
+    b();
+    b();
   }
 
   @override
   void bAntiClockwise() {
-    // TODO: implement bAntiClockwise
+    b();
   }
 
   @override
   void d() {
-    // TODO: implement d
+    for (var element in centers[Face.down]!) {
+      element.rotateClockwise();
+    }
   }
 
   @override
   void d2() {
-    // TODO: implement d2
+    d();
+    d();
   }
 
   @override
   void dAntiClockwise() {
-    // TODO: implement dAntiClockwise
+    d();
   }
 
   @override
@@ -48,51 +54,59 @@ class Centers3x3 extends Centers {
 
   @override
   void fAntiClockwise() {
-    // TODO: implement fAntiClockwise
+    f();
   }
 
   @override
   void l() {
-    // TODO: implement l
+    for (var element in centers[Face.left]!) {
+      element.rotateClockwise();
+    }
   }
 
   @override
   void l2() {
-    // TODO: implement l2
+    l();
   }
 
   @override
   void lAntiClockwise() {
-    // TODO: implement lAntiClockwise
+    l();
   }
 
   @override
   void r() {
-    // TODO: implement r
+    for (var element in centers[Face.right]!) {
+      element.rotateClockwise();
+    }
   }
 
   @override
   void r2() {
-    // TODO: implement r2
+    r();
+    r();
   }
 
   @override
   void rAntiClockwise() {
-    // TODO: implement rAntiClockwise
+    r();
   }
 
   @override
   void u() {
-    // TODO: implement u
+    for (var element in centers[Face.up]!) {
+      element.rotateClockwise();
+    }
   }
 
   @override
   void u2() {
-    // TODO: implement u2
+    u();
+    u();
   }
 
   @override
   void uAntiClockwise() {
-    // TODO: implement uAntiClockwise
+    u();
   }
 }
