@@ -21,17 +21,38 @@ class Edges3x3 extends Edges {
 
   @override
   void d() {
-    // TODO: implement d
+    final buffer = edges[(EdgePosition.df, edgeFirstLevel)];
+    edges[(EdgePosition.df, edgeFirstLevel)] =
+        edges[(EdgePosition.dl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dl, edgeFirstLevel)] =
+        edges[(EdgePosition.db, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.db, edgeFirstLevel)] =
+        edges[(EdgePosition.dr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dr, edgeFirstLevel)] = buffer!;
   }
 
   @override
   void d2() {
-    // TODO: implement d2
+    d();
+    d();
   }
 
   @override
   void dAntiClockwise() {
-    // TODO: implement dAntiClockwise
+    final buffer = edges[(EdgePosition.df, edgeFirstLevel)];
+    edges[(EdgePosition.df, edgeFirstLevel)] =
+        edges[(EdgePosition.dr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dr, edgeFirstLevel)] =
+        edges[(EdgePosition.db, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.db, edgeFirstLevel)] =
+        edges[(EdgePosition.dl, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dl, edgeFirstLevel)] = buffer!;
   }
 
   @override
