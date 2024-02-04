@@ -88,16 +88,25 @@ class Corners3x3 extends Corners {
 
   @override
   void u() {
-    // TODO: implement u
+    final buffer = corners[CornerPosition.ufl];
+    corners[CornerPosition.ufl] = corners[CornerPosition.urf]!;
+    corners[CornerPosition.urf] = corners[CornerPosition.ubr]!;
+    corners[CornerPosition.ubr] = corners[CornerPosition.ulb]!;
+    corners[CornerPosition.ulb] = buffer!;
   }
 
   @override
   void u2() {
-    // TODO: implement u2
+    u();
+    u();
   }
 
   @override
   void uAntiClockwise() {
-    // TODO: implement uAntiClockwise
+    final buffer = corners[CornerPosition.ufl];
+    corners[CornerPosition.ufl] = corners[CornerPosition.ulb]!;
+    corners[CornerPosition.ulb] = corners[CornerPosition.ubr]!;
+    corners[CornerPosition.ubr] = corners[CornerPosition.urf]!;
+    corners[CornerPosition.urf] = buffer!;
   }
 }
