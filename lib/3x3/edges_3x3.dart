@@ -80,17 +80,40 @@ class Edges3x3 extends Edges {
 
   @override
   void r() {
-    // TODO: implement r
+    final buffer = edges[(EdgePosition.ur, edgeFirstLevel)];
+
+    edges[(EdgePosition.uf, edgeFirstLevel)] =
+        edges[(EdgePosition.fr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.fr, edgeFirstLevel)] =
+        edges[(EdgePosition.dr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dr, edgeFirstLevel)] =
+        edges[(EdgePosition.br, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.br, edgeFirstLevel)] = buffer!;
   }
 
   @override
   void r2() {
-    // TODO: implement r2
+    r();
+    r();
   }
 
   @override
   void rAntiClockwise() {
-    // TODO: implement rAntiClockwise
+    final buffer = edges[(EdgePosition.ur, edgeFirstLevel)];
+
+    edges[(EdgePosition.ur, edgeFirstLevel)] =
+        edges[(EdgePosition.br, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.br, edgeFirstLevel)] =
+        edges[(EdgePosition.dr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.dr, edgeFirstLevel)] =
+        edges[(EdgePosition.fr, edgeFirstLevel)]!;
+
+    edges[(EdgePosition.fr, edgeFirstLevel)] = buffer!;
   }
 
   @override
