@@ -6,17 +6,47 @@ class Edges3x3 extends Edges {
 
   @override
   void b() {
-    // TODO: implement b
+    final buffer = edges[(EdgePosition.ub, edgeFirstLevel)];
+
+    edges[(EdgePosition.ub, edgeFirstLevel)] =
+        edges[(EdgePosition.br, edgeFirstLevel)]!;
+    edges[(EdgePosition.ub, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.br, edgeFirstLevel)] =
+        edges[(EdgePosition.db, edgeFirstLevel)]!;
+    edges[(EdgePosition.br, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.db, edgeFirstLevel)] =
+        edges[(EdgePosition.bl, edgeFirstLevel)]!;
+    edges[(EdgePosition.db, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.bl, edgeFirstLevel)] = buffer!;
+    edges[(EdgePosition.bl, edgeFirstLevel)]!.rotateClockwise();
   }
 
   @override
   void b2() {
-    // TODO: implement b2
+    b();
+    b();
   }
 
   @override
   void bAntiClockwise() {
-    // TODO: implement bAntiClockwise
+    final buffer = edges[(EdgePosition.ub, edgeFirstLevel)];
+    edges[(EdgePosition.ub, edgeFirstLevel)] =
+        edges[(EdgePosition.bl, edgeFirstLevel)]!;
+    edges[(EdgePosition.ub, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.bl, edgeFirstLevel)] =
+        edges[(EdgePosition.db, edgeFirstLevel)]!;
+    edges[(EdgePosition.bl, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.db, edgeFirstLevel)] =
+        edges[(EdgePosition.br, edgeFirstLevel)]!;
+    edges[(EdgePosition.db, edgeFirstLevel)]!.rotateClockwise();
+
+    edges[(EdgePosition.br, edgeFirstLevel)] = buffer!;
+    edges[(EdgePosition.br, edgeFirstLevel)]!.rotateClockwise();
   }
 
   @override
