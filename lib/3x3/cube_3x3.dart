@@ -11,32 +11,50 @@ class Cube3x3 extends Cube {
 
   @override
   void b() {
-    // TODO: implement b
+    corners.b();
+    edge.b();
+    centers.b();
+    movesPerformed++;
   }
 
   @override
   void b2() {
-    // TODO: implement b2
+    corners.b2();
+    edge.b2();
+    centers.b2();
+    movesPerformed++;
   }
 
   @override
   void bAntiClockwise() {
-    // TODO: implement bAntiClockwise
+    corners.bAntiClockwise();
+    edge.bAntiClockwise();
+    centers.bAntiClockwise();
+    movesPerformed++;
   }
 
   @override
   void d() {
-    // TODO: implement d
+    corners.d();
+    edge.d();
+    centers.d();
+    movesPerformed++;
   }
 
   @override
   void d2() {
-    // TODO: implement d2
+    corners.d2();
+    edge.d2();
+    centers.d2();
+    movesPerformed++;
   }
 
   @override
   void dAntiClockwise() {
-    // TODO: implement dAntiClockwise
+    corners.dAntiClockwise();
+    edge.dAntiClockwise();
+    centers.dAntiClockwise();
+    movesPerformed++;
   }
 
   @override
@@ -49,47 +67,74 @@ class Cube3x3 extends Cube {
 
   @override
   void f2() {
-    // TODO: implement f2
+    corners.f2();
+    edge.f2();
+    centers.f2();
+    movesPerformed++;
   }
 
   @override
   void fAntiClockwise() {
-    // TODO: implement fAntiClockwise
+    corners.fAntiClockwise();
+    edge.fAntiClockwise();
+    centers.fAntiClockwise();
+    movesPerformed++;
   }
 
   @override
   void l() {
-    // TODO: implement l
+    corners.l();
+    edge.l();
+    centers.l();
+    movesPerformed++;
   }
 
   @override
   void l2() {
-    // TODO: implement l2
+    corners.l2();
+    edge.l2();
+    centers.l2();
+    movesPerformed++;
   }
 
   @override
   void lAntiClockwise() {
-    // TODO: implement lAntiClockwise
+    corners.lAntiClockwise();
+    edge.lAntiClockwise();
+    centers.lAntiClockwise();
+    movesPerformed++;
   }
 
   @override
   void r() {
-    // TODO: implement r
+    corners.r();
+    edge.r();
+    centers.r();
+    movesPerformed++;
   }
 
   @override
   void r2() {
-    // TODO: implement r2
+    corners.r2();
+    edge.r2();
+    centers.r2();
+    movesPerformed++;
   }
 
   @override
   void rAntiClockwise() {
-    // TODO: implement rAntiClockwise
+    corners.rAntiClockwise();
+    edge.rAntiClockwise();
+    centers.rAntiClockwise();
+    movesPerformed++;
   }
 
   @override
   void u() {
-    // TODO: implement u
+    corners.u();
+    edge.u();
+    centers.u();
+    movesPerformed++;
   }
 
   @override
@@ -100,6 +145,9 @@ class Cube3x3 extends Cube {
 
   @override
   void uAntiClockwise() {
-    // TODO: implement uAntiClockwise
+    corners.uAntiClockwise();
+    edge.uAntiClockwise();
+    centers.uAntiClockwise();
+    movesPerformed++;
   }
 }
