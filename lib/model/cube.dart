@@ -20,4 +20,9 @@ abstract class Cube implements MoveList {
         edge.edges.toString() +
         centers.centers.toString();
   }
+
+  bool passesOrientationTest() {
+    return corners.passesCornerOrientationTest() &&
+        edge.passesEdgeOrientationTest();
+  }
 }

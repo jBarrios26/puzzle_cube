@@ -10,8 +10,7 @@ void main() {
   test(
     'solved cube shoud return correct toString template',
     () {
-      const cubeToString =
-          '''
+      const cubeToString = '''
                |u1 u2 u3|
                |u4 u5 u6|
                |u7 u8 u9|
@@ -24,6 +23,52 @@ void main() {
     ''';
       final result = cube.toString();
       expect(result, cubeToString);
+    },
+  );
+
+  group(
+    'Orientation',
+    () {
+      test('Cube is correctly oriented in solved state', () {
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after u move', () {
+        cube.u();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after d move', () {
+        cube.d();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after r move', () {
+        cube.r();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after l move', () {
+        cube.l();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after f move', () {
+        cube.f();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
+
+      test('Cube is correctly oriented after b move', () {
+        cube.b();
+        final result = cube.passesOrientationTest();
+        expect(result, true);
+      });
     },
   );
 }
