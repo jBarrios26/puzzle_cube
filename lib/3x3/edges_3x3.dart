@@ -1,8 +1,17 @@
 import 'package:puzzle_cube/3x3/constant.dart';
+import 'package:puzzle_cube/3x3/factory/edge_factory.dart';
 import 'package:puzzle_cube/puzzle_cube.dart';
 
 class Edges3x3 extends Edges {
   Edges3x3({required super.edges});
+
+  factory Edges3x3.solved({final ColorScheme? colors}) {
+    return Edges3x3(
+      edges: Edge3x3Factory.buildClean3x3EdgeCubies(
+        colors: colors ?? classicColorScheme,
+      ),
+    );
+  }
 
   @override
   void b() {

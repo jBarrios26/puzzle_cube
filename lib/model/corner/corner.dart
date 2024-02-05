@@ -12,7 +12,7 @@ class Corner implements Rotation {
     required this.cornerFacelets,
     this.orientation = 0,
   })  : assert(cornerFacelets.length == 3),
-        assert(orientation < 2);
+        assert(orientation <= 2);
 
   @override
   int get getOrientation => orientation % 3;

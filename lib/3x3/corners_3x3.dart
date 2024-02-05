@@ -1,7 +1,17 @@
+import 'package:puzzle_cube/3x3/constant.dart';
+import 'package:puzzle_cube/3x3/factory/factory.dart';
 import 'package:puzzle_cube/model/model.dart';
 
 class Corners3x3 extends Corners {
   Corners3x3({required super.corners});
+
+  factory Corners3x3.solved({final ColorScheme? colors}) {
+    return Corners3x3(
+      corners: Corner3x3Factory.buildClean3x3CornerCubies(
+        colors: colors ?? classicColorScheme,
+      ),
+    );
+  }
 
   @override
   void b() {
