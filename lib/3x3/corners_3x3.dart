@@ -63,13 +63,13 @@ class Corners3x3 extends Corners {
   void f() {
     final buffer = corners[CornerPosition.ufl];
     corners[CornerPosition.ufl] = corners[CornerPosition.dlf]!;
-    corners[CornerPosition.ufl]!.rotateAntiClockwise();
+    corners[CornerPosition.ufl]!.rotateClockwise();
     corners[CornerPosition.dlf] = corners[CornerPosition.dfr]!;
-    corners[CornerPosition.dlf]!.rotateClockwise();
+    corners[CornerPosition.dlf]!.rotateAntiClockwise();
     corners[CornerPosition.dfr] = corners[CornerPosition.urf]!;
-    corners[CornerPosition.dfr]!.rotateAntiClockwise();
+    corners[CornerPosition.dfr]!.rotateClockwise();
     corners[CornerPosition.urf] = buffer!;
-    corners[CornerPosition.urf]!.rotateClockwise();
+    corners[CornerPosition.urf]!.rotateAntiClockwise();
   }
 
   @override
