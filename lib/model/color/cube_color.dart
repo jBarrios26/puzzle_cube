@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:puzzle_cube/model/face/face.dart';
+
+typedef ColorScheme = Map<Face, CubeColor>;
 
 final class CubeColor {
   final Color color;
@@ -14,28 +17,28 @@ final class CubeColor {
 }
 
 class ClassicColors {
-  static CubeColor get blue => const CubeColor(
-        color: Color(0xFF0046AD),
-        name: 'blue',
-      );
-  static CubeColor get red => const CubeColor(
-        color: Color(0xFFB71234),
-        name: 'red',
-      );
-  static CubeColor get yellow => const CubeColor(
-        color: Color(0xFFFFD500),
-        name: 'yellow',
-      );
-  static CubeColor get green => const CubeColor(
-        color: Color(0xFF00FB48),
-        name: 'green',
-      );
-  static CubeColor get orange => const CubeColor(
-        color: Color(0xFFFF5800),
-        name: 'orange',
-      );
-  static CubeColor get white => const CubeColor(
-        color: Colors.white,
-        name: 'white',
-      );
+  static const CubeColor blue = CubeColor(
+    color: Color(0xFF0046AD),
+    name: 'blue',
+  );
+  static const CubeColor red = CubeColor(
+    color: Color(0xFFB71234),
+    name: 'red',
+  );
+  static const CubeColor yellow = CubeColor(
+    color: Color(0xFFFFD500),
+    name: 'yellow',
+  );
+  static const CubeColor green = CubeColor(
+    color: Color(0xFF00FB48),
+    name: 'green',
+  );
+  static const CubeColor orange = CubeColor(
+    color: Color(0xFFFF5800),
+    name: 'orange',
+  );
+  static const CubeColor white = CubeColor(
+    color: Colors.white,
+    name: 'white',
+  );
 }

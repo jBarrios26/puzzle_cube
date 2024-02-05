@@ -12,7 +12,7 @@ class Edge implements Rotation {
     required this.edgeFacelets,
     this.orientation = 0,
   })  : assert(edgeFacelets.length == 2),
-        assert(orientation > 1);
+        assert(orientation <= 1);
 
   @override
   int get getOrientation => orientation % 2;

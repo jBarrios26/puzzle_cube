@@ -1,7 +1,18 @@
-import 'package:puzzle_cube/puzzle_cube.dart';
+import 'package:puzzle_cube/3x3/constant.dart';
+import 'package:puzzle_cube/3x3/factory/center_factory.dart';
+import 'package:puzzle_cube/model/center/centers.dart';
+import 'package:puzzle_cube/model/color/cube_color.dart';
+import 'package:puzzle_cube/model/face/face.dart';
 
 class Centers3x3 extends Centers {
   Centers3x3({required super.centers});
+
+  factory Centers3x3.solved({final ColorScheme? colors}) {
+    return Centers3x3(
+      centers: Center3x3Factory.buildClean3x3Center(
+          colors: colors ?? classicColorScheme),
+    );
+  }
 
   @override
   void b() {
