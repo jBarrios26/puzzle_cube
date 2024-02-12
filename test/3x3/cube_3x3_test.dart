@@ -71,4 +71,69 @@ void main() {
       });
     },
   );
+
+  group(
+    'Front face moves',
+    () {
+      const cubeToStringAfterFMove = '''
+               |u1 u2 u3|
+               |u4 u5 u6|
+               |l9 l6 l3|
+      |l1 l2 d1|f7 f4 f1|u7 r2 r3|b1 b2 b3|
+      |l4 l5 d2|f8 f5 f2|u8 r5 r6|b4 b5 b6|
+      |l7 l8 d3|f9 f6 f3|u9 r8 r9|b7 b8 b9|
+               |r7 r4 r1|
+               |d4 d5 d6|
+               |d7 d8 d9|
+    ''';
+
+      const cubeToStringAfterFPrimeMove = '''
+               |u1 u2 u3|
+               |u4 u5 u6|
+               |r1 r4 r7|
+      |l1 l2 u9|f3 f6 f9|d3 r2 r3|b1 b2 b3|
+      |l4 l5 u8|f2 f5 f8|d2 r5 r6|b4 b5 b6|
+      |l7 l8 u7|f1 f4 f7|d1 r8 r9|b7 b8 b9|
+               |l3 l6 l9|
+               |d4 d5 d6|
+               |d7 d8 d9|
+    ''';
+
+      const cubeToStringAfterF2Move = '''
+               |u1 u2 u3|
+               |u4 u5 u6|
+               |d3 d2 d1|
+      |l1 l2 r7|f9 f8 f7|l9 r2 r3|b1 b2 b3|
+      |l4 l5 r4|f6 f5 f4|l6 r5 r6|b4 b5 b6|
+      |l7 l8 r1|f3 f2 f1|l3 r8 r9|b7 b8 b9|
+               |u9 u8 u7|
+               |d4 d5 d6|
+               |d7 d8 d9|
+    ''';
+
+      test(
+        'After an F move, toString shoud return cubeToStringAfterFMove',
+        () {
+          cube.f();
+          expect(cube.toString(), cubeToStringAfterFMove);
+        },
+      );
+
+      test(
+        'After an F prime move, toString shoud return cubeToStringAfterFPrimeMove',
+        () {
+          cube.fAntiClockwise();
+          expect(cube.toString(), cubeToStringAfterFPrimeMove);
+        },
+      );
+
+      test(
+        'After an F 2 move, toString shoud return cubeToStringAfterF2Move',
+        () {
+          cube.f2();
+          expect(cube.toString(), cubeToStringAfterF2Move);
+        },
+      );
+    },
+  );
 }
