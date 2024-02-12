@@ -136,4 +136,69 @@ void main() {
       );
     },
   );
+
+  group(
+    'Right face moves',
+    () {
+      const cubeToStringAfterRMove = '''
+               |u1 u2 f3|
+               |u4 u5 f6|
+               |u7 u8 f9|
+      |l1 l2 l3|f1 f2 d3|r7 r4 r1|u9 b2 b3|
+      |l4 l5 l6|f4 f5 d6|r8 r5 r2|u6 b5 b6|
+      |l7 l8 l9|f7 f8 d9|r9 r6 r3|u3 b8 b9|
+               |d1 d2 b7|
+               |d4 d5 b4|
+               |d7 d8 b1|
+    ''';
+
+      const cubeToStringAfterRPrimeMove = '''
+               |u1 u2 b7|
+               |u4 u5 b4|
+               |u7 u8 b1|
+      |l1 l2 l3|f1 f2 u3|r3 r6 r9|d9 b2 b3|
+      |l4 l5 l6|f4 f5 u6|r2 r5 r8|d6 b5 b6|
+      |l7 l8 l9|f7 f8 u9|r1 r4 r7|d3 b8 b9|
+               |d1 d2 f3|
+               |d4 d5 f6|
+               |d7 d8 f9|
+    ''';
+
+      const cubeToStringAfterR2Move = '''
+               |u1 u2 d3|
+               |u4 u5 d6|
+               |u7 u8 d9|
+      |l1 l2 l3|f1 f2 b7|r9 r8 r7|f9 b2 b3|
+      |l4 l5 l6|f4 f5 b4|r6 r5 r4|f6 b5 b6|
+      |l7 l8 l9|f7 f8 b1|r3 r2 r1|f3 b8 b9|
+               |d1 d2 u3|
+               |d4 d5 u6|
+               |d7 d8 u9|
+    ''';
+
+      test(
+        'After an R move, toString shoud return cubeToStringAfterRMove',
+        () {
+          cube.r();
+          expect(cube.toString(), cubeToStringAfterRMove);
+        },
+      );
+
+      test(
+        'After an R prime move, toString shoud return cubeToStringAfterRPrimeMove',
+        () {
+          cube.rAntiClockwise();
+          expect(cube.toString(), cubeToStringAfterRPrimeMove);
+        },
+      );
+
+      test(
+        'After an R 2 move, toString shoud return cubeToStringAfterR2Move',
+        () {
+          cube.r2();
+          expect(cube.toString(), cubeToStringAfterR2Move);
+        },
+      );
+    },
+  );
 }
