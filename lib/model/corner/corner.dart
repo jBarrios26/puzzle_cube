@@ -23,6 +23,14 @@ class Corner implements Rotation {
   ) =>
       this.orientation = orientation % 3;
 
+  @override
+  String toString() {
+    // TODO: implement toString
+    return getFacelet(0).toString() +
+        getFacelet(1).toString() +
+        getFacelet(2).toString();
+  }
+
   Facelet getFacelet(final int faceletDirection) {
     return cornerFacelets[faceletDirection % 3] ?? Facelet.empty();
   }

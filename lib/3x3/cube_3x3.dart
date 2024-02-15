@@ -29,10 +29,8 @@ class Cube3x3 extends Cube {
 
   @override
   void b2() {
-    corners.b2();
-    edge.b2();
-    centers.b2();
-    movesPerformed++;
+    b();
+    b();
   }
 
   @override
@@ -53,10 +51,8 @@ class Cube3x3 extends Cube {
 
   @override
   void d2() {
-    corners.d2();
-    edge.d2();
-    centers.d2();
-    movesPerformed++;
+    d();
+    d();
   }
 
   @override
@@ -77,10 +73,8 @@ class Cube3x3 extends Cube {
 
   @override
   void f2() {
-    corners.f2();
-    edge.f2();
-    centers.f2();
-    movesPerformed++;
+    f();
+    f();
   }
 
   @override
@@ -101,10 +95,8 @@ class Cube3x3 extends Cube {
 
   @override
   void l2() {
-    corners.l2();
-    edge.l2();
-    centers.l2();
-    movesPerformed++;
+    l();
+    l();
   }
 
   @override
@@ -125,10 +117,8 @@ class Cube3x3 extends Cube {
 
   @override
   void r2() {
-    corners.r2();
-    edge.r2();
-    centers.r2();
-    movesPerformed++;
+    r();
+    r();
   }
 
   @override

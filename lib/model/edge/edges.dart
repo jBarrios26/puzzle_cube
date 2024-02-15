@@ -8,4 +8,12 @@ abstract class Edges implements MoveList {
   Edges({
     required this.edges,
   });
+
+  bool passesEdgeOrientationTest() {
+    int orientationSum = 0;
+    for (var element in edges.values) {
+      orientationSum += element.orientation;
+    }
+    return orientationSum % 2 == 0;
+  }
 }
