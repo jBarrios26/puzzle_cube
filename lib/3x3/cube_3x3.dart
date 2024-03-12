@@ -151,6 +151,53 @@ class Cube3x3 extends Cube {
     movesPerformed++;
   }
 
+  List<Facelet> getFaceletByFace(Face face) {
+    switch (face) {
+      case Face.up:
+        final u1 = corners.corners[CornerPosition.ulb]!.getColorBasedOnPosition(
+          CornerPosition.ulb,
+          Face.up,
+        );
+        final u2 = edge.edges[(EdgePosition.ub, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ub,
+          Face.up,
+        );
+
+        final u3 = corners.corners[CornerPosition.ubr]!.getColorBasedOnPosition(
+          CornerPosition.ubr,
+          Face.up,
+        );
+        final u4 = edge.edges[(EdgePosition.ul, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ul,
+          Face.up,
+        );
+        final u5 = centers.centers[face]![0].facelet;
+        final u6 = edge.edges[(EdgePosition.ur, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ur,
+          Face.up,
+        );
+        final u7 = corners.corners[CornerPosition.ufl]!.getColorBasedOnPosition(
+          CornerPosition.ufl,
+          Face.up,
+        );
+        final u8 = edge.edges[(EdgePosition.uf, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.uf,
+          Face.up,
+        );
+        final u9 = corners.corners[CornerPosition.urf]!.getColorBasedOnPosition(
+          CornerPosition.urf,
+          Face.up,
+        );
+        return [u1, u2, u3, u4, u5, u6, u7, u8, u9];
+      default:
+    }
+    return [];
+  }
+
   @override
   String toString() {
     //UFL
