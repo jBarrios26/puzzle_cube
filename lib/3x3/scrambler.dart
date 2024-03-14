@@ -11,6 +11,8 @@ class ScrambleResult {
   });
 }
 
+class InvalidScrambleMoveError extends Error {}
+
 abstract class Scrambler {
   ScrambleResult scrambleCube(final Cube cube);
 }

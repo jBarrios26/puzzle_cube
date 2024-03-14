@@ -1,3 +1,4 @@
+import 'package:puzzle_cube/3x3/scrambler.dart';
 import 'package:puzzle_cube/3x3/three_by_three.dart';
 import 'package:puzzle_cube/model/model.dart';
 
@@ -17,6 +18,13 @@ class Cube3x3 extends Cube {
       corners: Corners3x3.solved(colors: color ?? classicColorScheme),
       edge: Edges3x3.solved(colors: color ?? classicColorScheme),
     );
+  }
+
+  void scramble(final Scrambler scramble) {
+    final cubeScrambled = scramble.scrambleCube(this);
+    centers = cubeScrambled.result.centers;
+    corners = cubeScrambled.result.corners;
+    edge = cubeScrambled.result.edge;
   }
 
   @override
