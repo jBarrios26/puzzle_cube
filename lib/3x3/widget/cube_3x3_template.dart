@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:puzzle_cube/3x3/cube_3x3.dart';
 import 'package:puzzle_cube/model/model.dart';
 
@@ -18,71 +19,77 @@ class Cube3x3Template extends StatelessWidget {
       height: height,
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.up),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(),
                 ),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-            ],
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.up),
+                  ),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.left),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.left),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.front),
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.front),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.right),
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.right),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.back),
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.back),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: FaceTemplate(
-                  radius: 16,
-                  facelets: cube.getFaceletByFace(Face.down),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(),
                 ),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-            ],
+                Expanded(
+                  child: FaceTemplate(
+                    radius: 16,
+                    facelets: cube.getFaceletByFace(Face.down),
+                  ),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+                Expanded(
+                  child: Container(),
+                ),
+              ],
+            ),
           ),
         ],
       ),
