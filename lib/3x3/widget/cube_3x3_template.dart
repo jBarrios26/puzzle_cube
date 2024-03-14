@@ -6,81 +6,86 @@ class Cube3x3Template extends StatelessWidget {
   const Cube3x3Template({
     super.key,
     required this.cube,
+    this.height = 200,
   });
 
   final Cube3x3 cube;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: Container(),
-            ),
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.up),
+    return SizedBox(
+      height: height,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Container(),
               ),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.left),
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.up),
+                ),
               ),
-            ),
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.front),
+              Expanded(
+                child: Container(),
               ),
-            ),
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.right),
+              Expanded(
+                child: Container(),
               ),
-            ),
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.back),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.left),
+                ),
               ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: Container(),
-            ),
-            Expanded(
-              child: FaceTemplate(
-                radius: 16,
-                facelets: cube.getFaceletByFace(Face.down),
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.front),
+                ),
               ),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-            Expanded(
-              child: Container(),
-            ),
-          ],
-        ),
-      ],
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.right),
+                ),
+              ),
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.back),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(),
+              ),
+              Expanded(
+                child: FaceTemplate(
+                  radius: 16,
+                  facelets: cube.getFaceletByFace(Face.down),
+                ),
+              ),
+              Expanded(
+                child: Container(),
+              ),
+              Expanded(
+                child: Container(),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
