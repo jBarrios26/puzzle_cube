@@ -60,7 +60,7 @@ class StringScrambler extends Scrambler {
           cube.rAntiClockwise();
           break;
         case Move3x3.r2:
-          cube.rAntiClockwise();
+          cube.r2();
           break;
         case Move3x3.l:
           cube.l();

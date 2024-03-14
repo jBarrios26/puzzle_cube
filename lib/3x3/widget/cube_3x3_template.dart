@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:puzzle_cube/3x3/cube_3x3.dart';
 import 'package:puzzle_cube/model/model.dart';
 
@@ -8,10 +7,12 @@ class Cube3x3Template extends StatelessWidget {
     super.key,
     required this.cube,
     this.height = 200,
+    this.gutter = 5,
   });
 
   final Cube3x3 cube;
   final double height;
+  final double gutter;
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +26,23 @@ class Cube3x3Template extends StatelessWidget {
                 Expanded(
                   child: Container(),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: FaceTemplate(
                     radius: 16,
                     facelets: cube.getFaceletByFace(Face.up),
                   ),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: Container(),
+                ),
+                SizedBox(
+                  width: gutter,
                 ),
                 Expanded(
                   child: Container(),
@@ -49,17 +59,26 @@ class Cube3x3Template extends StatelessWidget {
                     facelets: cube.getFaceletByFace(Face.left),
                   ),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: FaceTemplate(
                     radius: 16,
                     facelets: cube.getFaceletByFace(Face.front),
                   ),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: FaceTemplate(
                     radius: 16,
                     facelets: cube.getFaceletByFace(Face.right),
                   ),
+                ),
+                SizedBox(
+                  width: gutter,
                 ),
                 Expanded(
                   child: FaceTemplate(
@@ -76,14 +95,23 @@ class Cube3x3Template extends StatelessWidget {
                 Expanded(
                   child: Container(),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: FaceTemplate(
                     radius: 16,
                     facelets: cube.getFaceletByFace(Face.down),
                   ),
                 ),
+                SizedBox(
+                  width: gutter,
+                ),
                 Expanded(
                   child: Container(),
+                ),
+                SizedBox(
+                  width: gutter,
                 ),
                 Expanded(
                   child: Container(),
@@ -98,7 +126,11 @@ class Cube3x3Template extends StatelessWidget {
 }
 
 class FaceTemplate extends StatelessWidget {
-  const FaceTemplate({super.key, required this.facelets, required this.radius});
+  const FaceTemplate({
+    super.key,
+    required this.facelets,
+    required this.radius,
+  });
 
   final List<Facelet> facelets;
   final double radius;
@@ -106,29 +138,21 @@ class FaceTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int faceletId = 0;
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        border: Border.all(
-          width: 2.5,
-        ),
-      ),
-      child: GridView.count(
-        crossAxisCount: 3,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        children: facelets.map(
-          (facelet) {
-            return FaceletTemplate(
-              facelet: facelet,
-              radius: getRadius(
-                facelet,
-                faceletId++,
-              ),
-            );
-          },
-        ).toList(),
-      ),
+    return GridView.count(
+      crossAxisCount: 3,
+      crossAxisSpacing: 5,
+      mainAxisSpacing: 5,
+      children: facelets.map(
+        (facelet) {
+          return FaceletTemplate(
+            facelet: facelet,
+            radius: getRadius(
+              facelet,
+              faceletId++,
+            ),
+          );
+        },
+      ).toList(),
     );
   }
 
@@ -172,6 +196,10 @@ class FaceletTemplate extends StatelessWidget {
       decoration: BoxDecoration(
         color: facelet.color.color,
         borderRadius: radius,
+        border: Border.all(
+          color: Colors.black,
+          width: 2.5,
+        ),
       ),
     );
   }
