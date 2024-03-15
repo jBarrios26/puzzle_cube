@@ -4,9 +4,9 @@ import 'package:puzzle_cube/model/edge/edges.dart';
 import 'package:puzzle_cube/model/moves/move.dart';
 
 abstract class Cube implements MoveList {
-  final Centers centers;
-  final Corners corners;
-  final Edges edge;
+  Centers centers;
+  Corners corners;
+  Edges edge;
 
   Cube({
     required this.centers,

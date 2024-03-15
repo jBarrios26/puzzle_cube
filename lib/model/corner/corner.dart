@@ -25,7 +25,6 @@ class Corner implements Rotation {
 
   @override
   String toString() {
-    // TODO: implement toString
     return getFacelet(0).toString() +
         getFacelet(1).toString() +
         getFacelet(2).toString();

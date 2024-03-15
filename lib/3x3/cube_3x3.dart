@@ -1,3 +1,4 @@
+import 'package:puzzle_cube/3x3/scrambler.dart';
 import 'package:puzzle_cube/3x3/three_by_three.dart';
 import 'package:puzzle_cube/model/model.dart';
 
@@ -17,6 +18,13 @@ class Cube3x3 extends Cube {
       corners: Corners3x3.solved(colors: color ?? classicColorScheme),
       edge: Edges3x3.solved(colors: color ?? classicColorScheme),
     );
+  }
+
+  void scramble(final Scrambler scramble) {
+    final cubeScrambled = scramble.scrambleCube(this);
+    centers = cubeScrambled.result.centers;
+    corners = cubeScrambled.result.corners;
+    edge = cubeScrambled.result.edge;
   }
 
   @override
@@ -149,6 +157,280 @@ class Cube3x3 extends Cube {
     edge.uAntiClockwise();
     centers.uAntiClockwise();
     movesPerformed++;
+  }
+
+  List<Facelet> getFaceletByFace(Face face) {
+    switch (face) {
+      case Face.up:
+        final u1 = corners.corners[CornerPosition.ulb]!.getColorBasedOnPosition(
+          CornerPosition.ulb,
+          Face.up,
+        );
+        final u2 = edge.edges[(EdgePosition.ub, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ub,
+          Face.up,
+        );
+
+        final u3 = corners.corners[CornerPosition.ubr]!.getColorBasedOnPosition(
+          CornerPosition.ubr,
+          Face.up,
+        );
+        final u4 = edge.edges[(EdgePosition.ul, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ul,
+          Face.up,
+        );
+        final u5 = centers.centers[face]![0].facelet;
+        final u6 = edge.edges[(EdgePosition.ur, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ur,
+          Face.up,
+        );
+        final u7 = corners.corners[CornerPosition.ufl]!.getColorBasedOnPosition(
+          CornerPosition.ufl,
+          Face.up,
+        );
+        final u8 = edge.edges[(EdgePosition.uf, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.uf,
+          Face.up,
+        );
+        final u9 = corners.corners[CornerPosition.urf]!.getColorBasedOnPosition(
+          CornerPosition.urf,
+          Face.up,
+        );
+        return [u1, u2, u3, u4, u5, u6, u7, u8, u9];
+      case Face.front:
+        final f1 = corners.corners[CornerPosition.ufl]!.getColorBasedOnPosition(
+          CornerPosition.ufl,
+          Face.front,
+        );
+        final f2 = edge.edges[(EdgePosition.uf, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.uf,
+          Face.front,
+        );
+
+        final f3 = corners.corners[CornerPosition.urf]!.getColorBasedOnPosition(
+          CornerPosition.urf,
+          Face.front,
+        );
+        final f4 = edge.edges[(EdgePosition.fl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.fl,
+          Face.front,
+        );
+        final f5 = centers.centers[face]![0].facelet;
+        final f6 = edge.edges[(EdgePosition.fr, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.fr,
+          Face.front,
+        );
+        final f7 = corners.corners[CornerPosition.dlf]!.getColorBasedOnPosition(
+          CornerPosition.dlf,
+          Face.front,
+        );
+        final f8 = edge.edges[(EdgePosition.df, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.df,
+          Face.front,
+        );
+        final f9 = corners.corners[CornerPosition.dfr]!.getColorBasedOnPosition(
+          CornerPosition.dfr,
+          Face.front,
+        );
+        return [f1, f2, f3, f4, f5, f6, f7, f8, f9];
+      case Face.left:
+        final l1 = corners.corners[CornerPosition.ulb]!.getColorBasedOnPosition(
+          CornerPosition.ulb,
+          Face.left,
+        );
+        final l2 = edge.edges[(EdgePosition.ul, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ul,
+          Face.left,
+        );
+        final l3 = corners.corners[CornerPosition.ufl]!.getColorBasedOnPosition(
+          CornerPosition.ufl,
+          Face.left,
+        );
+        final l4 = edge.edges[(EdgePosition.bl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.bl,
+          Face.left,
+        );
+        final l5 = centers.centers[face]![0].facelet;
+        final l6 = edge.edges[(EdgePosition.fl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.fl,
+          Face.left,
+        );
+        final l7 = corners.corners[CornerPosition.dbl]!.getColorBasedOnPosition(
+          CornerPosition.dbl,
+          Face.left,
+        );
+        final l8 = edge.edges[(EdgePosition.dl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.dl,
+          Face.left,
+        );
+        final l9 = corners.corners[CornerPosition.dlf]!.getColorBasedOnPosition(
+          CornerPosition.dlf,
+          Face.left,
+        );
+        return [l1, l2, l3, l4, l5, l6, l7, l8, l9];
+      case Face.right:
+        final r1 = corners.corners[CornerPosition.urf]!.getColorBasedOnPosition(
+          CornerPosition.urf,
+          Face.right,
+        );
+        final r2 = edge.edges[(EdgePosition.ur, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ur,
+          Face.right,
+        );
+        final r3 = corners.corners[CornerPosition.ubr]!.getColorBasedOnPosition(
+          CornerPosition.ubr,
+          Face.right,
+        );
+        final r4 = edge.edges[(EdgePosition.fr, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.fr,
+          Face.right,
+        );
+        final r5 = centers.centers[face]![0].facelet;
+        final r6 = edge.edges[(EdgePosition.br, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.br,
+          Face.right,
+        );
+        final r7 = corners.corners[CornerPosition.dfr]!.getColorBasedOnPosition(
+          CornerPosition.dfr,
+          Face.right,
+        );
+        final r8 = edge.edges[(EdgePosition.dr, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.dr,
+          Face.right,
+        );
+        final r9 = corners.corners[CornerPosition.drb]!.getColorBasedOnPosition(
+          CornerPosition.drb,
+          Face.right,
+        );
+        return [
+          r1,
+          r2,
+          r3,
+          r4,
+          r5,
+          r6,
+          r7,
+          r8,
+          r9,
+        ];
+      case Face.back:
+        final b1 = corners.corners[CornerPosition.ubr]!.getColorBasedOnPosition(
+          CornerPosition.ubr,
+          Face.back,
+        );
+        final b2 = edge.edges[(EdgePosition.ub, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.ub,
+          Face.back,
+        );
+        final b3 = corners.corners[CornerPosition.ulb]!.getColorBasedOnPosition(
+          CornerPosition.ulb,
+          Face.back,
+        );
+        final b4 = edge.edges[(EdgePosition.br, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.br,
+          Face.back,
+        );
+        final b5 = centers.centers[face]![0].facelet;
+        final b6 = edge.edges[(EdgePosition.bl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.bl,
+          Face.back,
+        );
+        final b7 = corners.corners[CornerPosition.drb]!.getColorBasedOnPosition(
+          CornerPosition.drb,
+          Face.back,
+        );
+
+        final b8 = edge.edges[(EdgePosition.db, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.db,
+          Face.back,
+        );
+        final b9 = corners.corners[CornerPosition.dbl]!.getColorBasedOnPosition(
+          CornerPosition.dbl,
+          Face.back,
+        );
+        return [
+          b1,
+          b2,
+          b3,
+          b4,
+          b5,
+          b6,
+          b7,
+          b8,
+          b9,
+        ];
+      case Face.down:
+        final d1 = corners.corners[CornerPosition.dlf]!.getColorBasedOnPosition(
+          CornerPosition.dlf,
+          Face.down,
+        );
+        final d2 = edge.edges[(EdgePosition.df, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.df,
+          Face.down,
+        );
+        final d3 = corners.corners[CornerPosition.dfr]!.getColorBasedOnPosition(
+          CornerPosition.dfr,
+          Face.down,
+        );
+        final d4 = edge.edges[(EdgePosition.dl, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.dl,
+          Face.down,
+        );
+        final d5 = centers.centers[face]![0].facelet;
+        final d6 = edge.edges[(EdgePosition.dr, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.dr,
+          Face.down,
+        );
+        final d7 = corners.corners[CornerPosition.dbl]!.getColorBasedOnPosition(
+          CornerPosition.dbl,
+          Face.down,
+        );
+        final d8 = edge.edges[(EdgePosition.db, edgeFirstLevel)]!
+            .getFaceletBasedByPosition(
+          EdgePosition.db,
+          Face.down,
+        );
+        final d9 = corners.corners[CornerPosition.drb]!.getColorBasedOnPosition(
+          CornerPosition.drb,
+          Face.down,
+        );
+        return [
+          d1,
+          d2,
+          d3,
+          d4,
+          d5,
+          d6,
+          d7,
+          d8,
+          d9,
+        ];
+      default:
+    }
+    return [];
   }
 
   @override
