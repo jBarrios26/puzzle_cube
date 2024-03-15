@@ -255,9 +255,9 @@ class Cube3x3 extends Cube {
           CornerPosition.ufl,
           Face.left,
         );
-        final l4 = edge.edges[(EdgePosition.dl, edgeFirstLevel)]!
+        final l4 = edge.edges[(EdgePosition.bl, edgeFirstLevel)]!
             .getFaceletBasedByPosition(
-          EdgePosition.dl,
+          EdgePosition.bl,
           Face.left,
         );
         final l5 = centers.centers[face]![0].facelet;
@@ -358,6 +358,7 @@ class Cube3x3 extends Cube {
           CornerPosition.drb,
           Face.back,
         );
+
         final b8 = edge.edges[(EdgePosition.db, edgeFirstLevel)]!
             .getFaceletBasedByPosition(
           EdgePosition.db,

@@ -86,7 +86,7 @@ class StringScrambler extends Scrambler {
         case Move3x3.bPrime:
           cube.bAntiClockwise();
         case Move3x3.b2:
-          cube.b();
+          cube.b2();
         case Move3x3.invalid:
           break;
       }
